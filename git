@@ -1,0 +1,29 @@
+import requests
+import random
+
+def get_random_repo():
+    # Generating a random page number to fetch random repositories
+    page = random.randint(1, 100)
+    
+    # Making a request to the GitHub API to get a random repository
+    response = requests.get(f"https://api.github.com/repositories?page={page}")
+    
+    # Checking if the request was successful
+    if response.status_code == 200:
+        # Parsing the JSON response
+        data = response.json()
+        
+        # Selecting a random repository from the response
+        random_repo = random.choice(data)
+        
+        # Printing basic information about the repository
+        print("Random Repository:")
+        print("Name:", random_repo["name"])
+        print("Owner:", random_repo["owner"]["login"])
+        print("URL:", random_repo["html_url"])
+        print("Description:", random_repo["description"])
+    else:
+        print("Failed to fetch random repository.")
+
+if __name__ == "__main__":
+    get_random_repo()
