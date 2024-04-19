@@ -14,4 +14,4 @@ if __name__ == "__main__":
     
     # Print the shuffled list
     print("Original List:", my_list)
-    print("Shuffled List:", shuffled)
+    print("Shuffled Listtt:", shuffled)
