@@ -5,4 +5,4 @@ pull_request_rules:
       - check-success=CI # replace "CI" with the name of your CI status check
     actions:
       queue:
-        merge_method: merge
+        name: default
