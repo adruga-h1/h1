@@ -1,0 +1,17 @@
+import random
+
+def shuffle_list(input_list):
+    shuffled_list = input_list[:]
+    random.shuffle(shuffled_list)
+    return shuffled_list
+
+if __name__ == "__main__":
+    # Example list to shuffle
+    my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    
+    # Shuffle the list
+    shuffled = shuffle_list(my_list)
+    
+    # Print the shuffled list
+    print("Original List:", my_list)
+    print("Shuffled Listttt:", shuffled)
