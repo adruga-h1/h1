@@ -10,6 +10,7 @@ pull_request_rules:
         users:
           - Shayera
           - adruga-h1
+          
   - name: Automatic merge when CI passes and reviews approve
     conditions:
       - '#approved-reviews-by>=1'
@@ -17,3 +18,11 @@ pull_request_rules:
     actions:
       queue:
         name: default
+
+        pull_request_rules:
+  - name: add a label with the name of the branch
+    conditions: []
+    actions:
+      label:
+        add:
+          - "branch:{{base}}"
