@@ -18,10 +18,3 @@ pull_request_rules:
     actions:
       queue:
         name: default
-
-  - name: add a label with the name of the branch
-    conditions:
-    actions:
-      label:
-        add:
-          - "branch:{{base}}"
