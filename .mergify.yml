@@ -1,8 +1,14 @@
 pull_request_rules:
+  - name: Automatic merge during office hours
+    description: Merge when PR passes all branch protection during office hours
+    conditions:
+      - schedule = Mon-Fri 09:00-17:00[America/Los_Angeles]
+    actions:
+      merge: 
   - name: Automatic merge when CI passes and reviews approve
     conditions:
-      - "#approved-reviews-by>=1"
-      - check-success=CI # replace "CI" with the name of your CI status check
+      - '#approved-reviews-by>=1'
+      - check-success=CI
     actions:
       queue:
         name: default
