@@ -19,7 +19,6 @@ pull_request_rules:
       queue:
         name: default
 
-        pull_request_rules:
   - name: add a label with the name of the branch
     conditions: []
     actions:
