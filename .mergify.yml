@@ -1,4 +1,28 @@
 pull_request_rules:
+  - name: Make sure PR are up to date before merging
+    description: >-
+      This automatically updates PRs when they are out-of-date with the base
+      branch to avoid semantic conflicts (next step is using a merge queue).
+    conditions: []
+    actions:
+      update: 
+  - name: Assign t-shirt size to PR
+    description: >-
+      Assign a t-shirt size label to a pull request based on the number of lines
+      changed.
+    conditions:
+      - '#modified-lines >= 1'
+      - '#modified-lines < 5'
+    actions:
+      label:
+        toggle:
+          - size/L
+  - name: Automatic merge
+    description: Merge when PR passes all branch protection and has label automerge
+    conditions:
+      - label = automerge
+    actions:
+      merge: 
   - name: Request review from team
     description: Request review from a specific team when checks are green.
     conditions:
@@ -10,10 +34,8 @@ pull_request_rules:
         users:
           - Shayera
           - adruga-h1
-          
   - name: Automatic merge when CI passes and reviews approve
     conditions:
       - '#approved-reviews-by>=1'
     actions:
-      queue:
-        name: default
+      queue: 
