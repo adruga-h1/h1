@@ -1,10 +1,15 @@
 pull_request_rules:
-  - name: Automatic merge during office hours
-    description: Merge when PR passes all branch protection during office hours
+  - name: Request review from team
+    description: Request review from a specific team when checks are green.
     conditions:
-      - schedule = Mon-Fri 09:00-17:00[America/Los_Angeles]
+      - '-closed'
+      - '#approved-reviews-by=1'
+      - '#changes-requested-reviews-by=1'
     actions:
-      merge: 
+      request_reviews:
+        users:
+          - Shayera
+          - adruga-h1
   - name: Automatic merge when CI passes and reviews approve
     conditions:
       - '#approved-reviews-by>=1'
