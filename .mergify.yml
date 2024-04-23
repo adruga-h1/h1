@@ -2,6 +2,7 @@ pull_request_rules:
   - name: Request review from team
     description: Request review from a specific team when checks are green.
     conditions:
+      - 'closed'
       - '#approved-reviews-by=1'
       - '#changes-requested-reviews-by=1'
     actions:
