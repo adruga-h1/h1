@@ -20,7 +20,7 @@ pull_request_rules:
         name: default
 
   - name: add a label with the name of the branch
-    conditions: []
+    conditions:
     actions:
       label:
         add:
